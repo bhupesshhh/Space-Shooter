@@ -1,20 +1,25 @@
+## Imports
 import pygame
 import os
 pygame.font.init()
 pygame.mixer.init()
 
+## Constants
 WIDTH, HEIGHT = 900, 600
-WINDOW = pygame.display.set_mode((WIDTH, HEIGHT))
-pygame.display.set_caption("Fire Blaster!")
+WINDOW = pygame.display.set_mode((WIDTH, HEIGHT)) # Setting the width-height with the display
+pygame.display.set_caption("Fire Blaster!") # Display the game name
 
+# Colour ( RGB Format )
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 RED = (255, 0, 0)
 YELLOW = (255, 255, 0)
 
+# Fonts for Stats
 HEALTH_FONT = pygame.font.SysFont('cominsans', 40)
 WINNER_FONT = pygame.font.SysFont('cominsans', 140)
 
+# Contstants related to the game speed and characteristics
 FPS = 60
 VELOCITY = 5
 BULLETS_VELOCITY = 7
@@ -25,6 +30,7 @@ SPACESHIP_WIDTH, SPACESHIP_HEIGHT = 55, 40
 YELLOW_HIT = pygame.USEREVENT + 1
 RED_HIT = pygame.USEREVENT + 2
 
+# Sources of the file
 current_path = os.path.dirname(__file__)  # Where your .py file is located
 resource_path = os.path.join(current_path, 'Attachments')  # The resource folder path
 
@@ -44,6 +50,9 @@ BULLET_SHOOT_SOUND = pygame.mixer.Sound(os.path.join(resource_path, 'Arrow+Swoos
 
 
 def draw_window(red, yellow, red_bullets, yellow_bullets, red_health, yellow_health):
+    """
+    Function to show the window for the game
+    """
     WINDOW.blit(SPACE, (0, 0))
     pygame.draw.rect(WINDOW, BLACK, BORDER)
 
